@@ -49,8 +49,9 @@ const MoviesList = () => {
     }, []);
 
     return (
-        <>
+        <div >
             <h2>movies collection</h2>
+            <div className="movieList">
             <Grid container spacing={4}>
                 {movies ? (
                     movies?.map((movie, i) =>
@@ -63,7 +64,9 @@ const MoviesList = () => {
 
             </Grid>
 
-        </>
+            </div>
+
+        </div>
     );
 }
 

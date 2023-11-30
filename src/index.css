@@ -30,3 +30,14 @@ code {
   gap:20px;
 }
 
+img{
+  transition: all 1s;
+}
+img:hover{
+  transform: scale(1.05);
+}
+
+.movieList{
+  margin: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}

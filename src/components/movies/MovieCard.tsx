@@ -10,12 +10,12 @@ import { IMovie } from '../../types/movie';
 
 export default function MovieCard({title,year,imageUrl,description}:IMovie) {
   return (
-    <Card sx={{ height:'100%', padding:'10px'  }}>
+
+<Card sx={{ height:'100%', padding:'10px' }}>
       <CardMedia
         sx={{ maxHeight: 640, minHeight:500}}
         // image={cinema1}
         image={imageUrl}
-        title="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -28,6 +28,8 @@ export default function MovieCard({title,year,imageUrl,description}:IMovie) {
         <Button size="small">Learn More</Button> */}
       </CardActions>
     </Card>
+
+    
   );
 }
 
