@@ -13,11 +13,10 @@ const Register = () => {
     const navigate = useNavigate();
     const onSubmit = async (user: IRegisterDto) => {
         const token = await AuthService.register(user);
-        if(token){
-            setTokenFromLocalStorage("token", token);
-            alert(token);
+        
+            alert('Successful registration!');
             navigate("/movies");
-        }
+
         // alert(`Username: ${user.username}, Password: ${user.password}`);
     }
     return (

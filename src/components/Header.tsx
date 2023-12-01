@@ -13,14 +13,19 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { removeTokenFromLocalStorage } from "../services/localStorage.helper";
 
+function logout(){
+    removeTokenFromLocalStorage("token");
+}
 
 const pages = [
     { itemName: 'Home', path: '/' },
     { itemName: 'Movies', path: 'movies' },
     { itemName: 'Registration', path: 'register' },
+
 ];
-const settings = [ { itemName: 'Login', path: '/login' },];
+const settings = [ { itemName: 'Login', path: '/login' }];
 
 function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -80,11 +85,16 @@ function Header() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
+                           
                             {pages.map((page) => (
                                 <MenuItem key={page.itemName} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center"><Link to={page.path}>{page.itemName}</Link></Typography>
                                 </MenuItem>
+                                
                             ))}
+                             <MenuItem onClick={logout}>
+                                <Typography>LOGOUT</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -116,12 +126,13 @@ function Header() {
                                 <Link style={{ color: 'white', textDecoration: 'none' }} to={page.path}>{page.itemName}</Link>
                             </Button>
                         ))}
+                        <Button style={{ color: 'white', textDecoration: 'none' }} onClick={logout}>LOGOUT</Button>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            <Avatar alt="Remy Sharp" src="https://avatars.githubusercontent.com/u/126082209?v=4" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -142,9 +153,10 @@ function Header() {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting.itemName} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center"><Link to={setting.path}>{setting.itemName}</Link></Typography>
+                                    <Typography sx={{textDecoration:'none', backgroundColor:"white"}} textAlign="center"><Link to={setting.path}>{setting.itemName}</Link></Typography>
                                 </MenuItem>
                             ))}
+                           
                         </Menu>
                     </Box>
                 </Toolbar>
